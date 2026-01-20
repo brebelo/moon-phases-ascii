@@ -1,0 +1,31 @@
+A faire: 
+
+lune.py:
+Objectif : gérer tout ce qui concerne la lune.
+Fontions à créer :
+phase_lune(date) → retourne le % d’illumination pour une date donnée.
+Entrée : un objet datetime.date.
+Sortie : un float entre 0 et 1 (0 = nouvelle lune, 1 = pleine lune).
+À l’intérieur, tu utiliseras astral, ephem ou skyfield.
+nom_phase(illumination) → retourne “Nouvelle lune”, “Premier quartier”, etc.
+Basé sur le % de lumière, par tranche (0-0.25, 0.25-0.5, …).
+ascii_lune(illumination) → retourne un string multi-lignes représentant la Lune en ASCII.
+Tu peux avoir une liste de templates ASCII et choisir selon l’illumination.
+Ou générer le cercle “dynamiquement” selon la fraction éclairée (plus fun).
+
+main.py
+Objectif : interface terminal.
+Fonctions à prévoir :
+Lire la date du jour par défaut.
+Permettre à l’utilisateur de passer une date ou un intervalle de jours :
+Exemple : python main.py --days 5 → affiche lune pour 5 prochains jours.
+Appeler lune.phase_lune(date) puis lune.ascii_lune(illumination).
+Afficher tout proprement dans le terminal avec print().
+Ajouter de la couleur avec colorama pour la partie éclairée.
+
+3️⃣ Bibliothèques utiles
+Calcul astronomie : astral, ephem, skyfield
+Dates : datetime
+Terminal et couleurs : colorama (optionnel)
+Parsing arguments : argparse pour gérer --date ou --days
+
