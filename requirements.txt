@@ -29,3 +29,104 @@ Dates : datetime
 Terminal et couleurs : colorama (optionnel)
 Parsing arguments : argparse pour gérer --date ou --days
 
+------------------------------------------------------------
+
+TO DO List :
+#🧱 PHASE 0 — Préparer le terrain
+
+#⬜ Créer le dépôt GitHub
+#⬜ Choisir le nom du projet
+#⬜ Initialiser l’environnement Python
+#⬜ Créer l’arborescence de base du projet
+#⬜ Ajouter un .gitignore
+#⬜ Créer un README.md minimal (objectif du projet)
+
+🧩 PHASE 1 — CLI & expérience utilisateur
+
+⬜ Définir la commande à lancer (ex : moon) => moonphases
+⬜ Choisir comment l’utilisateur fournit une date => --date "21.01.2026"
+⬜ Gérer le cas “aucun argument” → date actuelle 
+⬜ Gérer les erreurs de saisie (date invalide, format incorrect)
+⬜ Ajouter une option --help claire 
+⬜ Ajouter un flag --no-color
+
+🎯 Objectif : pouvoir lancer la commande sans crash, même si elle n’affiche encore rien de beau
+
+🌍 PHASE 2 — Gestion des dates & du temps
+
+⬜ Parser une date entrée par l’utilisateur
+⬜ Choisir une date de référence lunaire
+⬜ Calculer un nombre de jours écoulés
+⬜ Décider si l’heure est prise en compte ou non
+⬜ Tester avec plusieurs dates connues (passé / futur)
+
+🎯 Objectif : être sûr que le “temps” est fiable
+
+🌑 PHASE 3 — Calcul de la phase lunaire
+
+⬜ Choisir une méthode de calcul (simple mais cohérente)
+⬜ Calculer l’âge de la Lune ou un angle de phase
+⬜ Déterminer si la phase est croissante ou décroissante
+⬜ Associer un nom de phase (Nouvelle Lune, Pleine Lune…)
+⬜ Tester avec des dates connues
+
+🎯 Objectif : avoir une phase lunaire correcte sans encore d’ASCII
+
+🖼️ PHASE 4 — Rendu ASCII (sans couleur)
+
+⬜ Choisir la taille du disque lunaire
+⬜ Générer une grille 2D
+⬜ Déterminer quels points sont dans le disque
+⬜ Déterminer quels points sont éclairés
+⬜ Mapper luminosité → caractères ASCII
+⬜ Afficher correctement dans le terminal
+
+🎯 Objectif : voir une Lune reconnaissable, même en noir & blanc
+
+🎨 PHASE 5 — Couleur avec colorama
+
+⬜ Initialiser correctement colorama
+⬜ Appliquer une couleur à la partie éclairée
+⬜ Choisir une couleur d’ombre lisible
+⬜ Réinitialiser les couleurs après l’affichage
+⬜ Respecter le flag --no-color
+
+🎯 Objectif : améliorer le rendu sans casser la lisibilité
+
+📢 PHASE 6 — Informations textuelles
+
+⬜ Afficher la date utilisée
+⬜ Afficher le nom de la phase
+⬜ Afficher un pourcentage d’illumination
+⬜ Organiser proprement l’affichage (avant / après l’ASCII)
+
+🎯 Objectif : donner du contexte, pas juste un dessin
+
+🧪 PHASE 7 — Robustesse & qualité
+
+⬜ Tester sur plusieurs tailles de terminal
+⬜ Tester sans couleur
+⬜ Tester avec dates extrêmes
+⬜ Nettoyer le code (noms clairs, fonctions courtes)
+⬜ Ajouter des commentaires utiles
+
+🎯 Objectif : projet propre, lisible, maintenable
+
+📦 PHASE 8 — Packaging & partage
+
+⬜ Ajouter un requirements.txt
+⬜ Rendre la commande exécutable facilement
+⬜ Ajouter des exemples dans le README
+⬜ Ajouter une capture ASCII dans le README
+⬜ Choisir une licence
+⬜ Vérifier que le projet se clone et fonctionne ailleurs
+
+🎯 Objectif : quelqu’un peut l’utiliser en 2 minutes
+
+🌟 PHASE 9 — Bonus (optionnel mais stylé)
+
+⬜ Option pour changer la taille de la Lune
+⬜ Option pour afficher plusieurs phases côte à côte
+⬜ Mode “animation” (cycle lunaire)
+⬜ Dégradés ASCII plus fins
+⬜ Mode éducatif (explication de la phase)
