@@ -1,9 +1,40 @@
 from datetime import datetime
+import moon
 import math
 
 
 #date d'aujourd'hui, format yyyy-mm-dd
 #print("la date d'aujourd'hui est", datetime.today().strftime("%Y-%m-%d"))
+
+def visuel():
+    print(" ----------------------------------------------------------------------------- ")
+    print(" |     ~~~~~~~~~~~~>         Moon phases in ASCII !     <~~~~~~~~~~~~~~       |")
+    print(" |                             Made by Brandon R.                             |")
+    print(" ----------------------------------------------------------------------------- ")
+    print ("                                                       ")
+    print ("o                     __...__     *                    ")
+    print ("              *   .--'    __.=-.             o         ")
+    print ("     |          ./     .-'                             ")
+    print ("    -O-        /      /                                ")
+    print ("     |        /    '/'                                 ")
+    print ("             |     (@)                                 ")
+    print ("            |        \                         .       ")
+    print ("            |         \                                ")
+    print (" *          |       ___\                  |            ")
+    print ("             |  .   /  `                 -O-           ")
+    print ("              \  `~~\                     |            ")
+    print ("         o     \     \            *                    ")
+    print ("                `\    `-.__           .                ")
+    print ("    .             `--._    `--'jgs                     ")
+    print ("                       `---~~`                *        ")
+    print ("            *                   o                      ")
+    print ("                                                       ")
+
+
+
+
+
+
 
 
 def entree_utilisateur():
@@ -17,6 +48,7 @@ def entree_utilisateur():
             daydate = datetime.today()
             illumination = calcul_phase(daydate)
             print(f"Illumination: {illumination:.2f}%")
+            moon.lune(illumination)
         elif entree_cmd == "--date":
             print("merci de rentrez la date souhaitée: ")
             date_saisie = input()
@@ -24,6 +56,7 @@ def entree_utilisateur():
             print("Vous avez choisi la date:", date_objet)
             illumination = calcul_phase(date_objet)
             print(f"Illumination : {illumination:.2f}%")
+            moon.lune(illumination)
 
         elif entree_cmd == "--quit":
             print("Fin du programme")
@@ -47,5 +80,5 @@ def calcul_phase(date_objet):
     return f
 
 
-
+visuel()
 entree_utilisateur()
