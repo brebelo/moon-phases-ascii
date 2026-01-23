@@ -1,21 +1,6 @@
 import math
-
-def lune(illumination):
-    index = illumination / 3
-    index_int = int(index)
-    index_int = max(0, min(index_int, len(lunes_phases) - 1))
-
-    return lunes_phases[index_int]
-    
-
-
-def ascii_phases(illumination):
-    lunes_phases = [
-        ascii_0p,
-        ascii_3p
-    ]
-    
-    ascii_3p = """ 
+   
+ascii_3p = """ 
                ....................\n
             ........................:#\n
           ...............................:#\n
@@ -25,15 +10,30 @@ def ascii_phases(illumination):
                 ....................\n
  
 """
-    ascii_0p = """
+ascii_0p = """
 
-               ....................
-            ...........................
-         .................................
-        ...................................
-         .................................
-            ............................
-               ....................
+               ....................\n
+            ...........................\n
+         .................................\n
+        ...................................\n
+         .................................\n
+            ............................\n
+               ....................\n
 
 """
 
+lunes_phases = [
+        ascii_0p,
+        ascii_3p
+    ]
+
+
+
+def lune(illumination):
+    index = illumination / 3
+    index_int = int(index)
+    index_int = max(0, min(index_int, len(lunes_phases) - 1))
+
+    return lunes_phases[index_int]
+
+print(lune(15))
