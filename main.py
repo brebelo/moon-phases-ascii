@@ -1,3 +1,8 @@
+import os
+import colorama
+from colorama import Fore, Style
+colorama.init(autoreset=True)
+
 from datetime import datetime
 import moon
 import math
@@ -11,30 +16,24 @@ def visuel():
     print(" |     ~~~~~~~~~~~~>         Moon phases in ASCII !     <~~~~~~~~~~~~~~       |")
     print(" |                             Made by Brandon R.                             |")
     print(" ----------------------------------------------------------------------------- ")
-    print ("                                                       ")
-    print ("o                     __...__     *                    ")
-    print ("              *   .--'    __.=-.             o         ")
-    print ("     |          ./     .-'                             ")
-    print ("    -O-        /      /                                ")
-    print ("     |        /    '/'                                 ")
-    print ("             |     (@)                                 ")
-    print ("            |        \                         .       ")
-    print ("            |         \                                ")
-    print (" *          |       ___\                  |            ")
-    print ("             |  .   /  `                 -O-           ")
-    print ("              \  `~~\                     |            ")
-    print ("         o     \     \            *                    ")
-    print ("                `\    `-.__           .                ")
-    print ("    .             `--._    `--'jgs                     ")
-    print ("                       `---~~`                *        ")
-    print ("            *                   o                      ")
-    print ("                                                       ")
-
-
-
-
-
-
+    print (r"                                                       ")
+    print (r"o                     __...__     *                    ")
+    print (r"              *   .--'    __.=-.             o         ")
+    print (r"     |          ./     .-'                             ")
+    print (r"    -O-        /      /                                ")
+    print (r"     |        /    '/'                                 ")
+    print (r"             |     (@)                                 ")
+    print (r"            |        \                         .       ")
+    print (r"            |         \                                ")
+    print (r" *          |       ___\                  |            ")
+    print (r"             |  .   /  `                 -O-           ")
+    print (r"              \  `~~\                     |            ")
+    print (r"         o     \     \            *                    ")
+    print (r"                `\    `-.__           .                ")
+    print (r"    .             `--._    `--'jgs                     ")
+    print (r"                       `---~~`                *        ")
+    print (r"            *                   o                      ")
+    print (r"                                                       ")
 
 
 def entree_utilisateur():
@@ -48,7 +47,8 @@ def entree_utilisateur():
             daydate = datetime.today()
             illumination, age = calcul_phase(daydate)
             print(f"Illumination: {illumination:.2f}%")
-            print(moon.lune(illumination, age))
+            ascii_lune = moon.lune(illumination, age)
+            print(moon.colorer_ascii(ascii_lune))  # <-- ici
         elif entree_cmd == "--date":
             print("merci de rentrez la date souhaitée: ")
             date_saisie = input()
@@ -56,7 +56,8 @@ def entree_utilisateur():
             print("Vous avez choisi la date:", date_objet)
             illumination, age = calcul_phase(date_objet)
             print(f"Illumination : {illumination:.2f}%")
-            print(moon.lune(illumination, age))
+            ascii_lune = moon.lune(illumination, age)
+            print(moon.colorer_ascii(ascii_lune))  # <-- ici
 
         elif entree_cmd == "--quit":
             print("Fin du programme")

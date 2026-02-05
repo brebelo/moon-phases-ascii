@@ -1,6 +1,17 @@
-import math
+import colorama
+from colorama import Fore, Style
+colorama.init(autoreset=True)
+
+COLORS = {    
+    ".": Fore.BLUE,            # ombre = bleu sombre
+    ":": Fore.LIGHTBLUE_EX,    # pénombre = bleu clair
+    "#": Fore.CYAN,            # surface éclairée = cyan
+    "@": Fore.LIGHTCYAN_EX,    # lumière maximale = bleu très clair
+}
 
 
+
+# --- ASCII DATA ---
 ascii_0p = """
 
             ........       
@@ -462,3 +473,18 @@ def lune(illumination, age_lune, cycle=29.53058867):
         ascii_lune = miroir_ascii(ascii_lune)
 
     return ascii_lune
+
+def colorer_ascii(ascii_art):
+    lignes = ascii_art.splitlines()
+    lignes_color = []
+
+    for ligne in lignes:
+        nouvelle_ligne = ""
+        for char in ligne:
+            if char in COLORS:
+                nouvelle_ligne += COLORS[char] + char
+            else:
+                nouvelle_ligne += char
+        lignes_color.append(nouvelle_ligne)
+
+    return "\n".join(lignes_color)
