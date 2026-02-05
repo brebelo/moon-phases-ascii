@@ -46,17 +46,17 @@ def entree_utilisateur():
         if entree_cmd == "--today":
             print("Vous avez choisi la date d'aujourd'hui : ")
             daydate = datetime.today()
-            illumination = calcul_phase(daydate)
+            illumination, age = calcul_phase(daydate)
             print(f"Illumination: {illumination:.2f}%")
-            moon.lune(illumination)
+            print(moon.lune(illumination, age))
         elif entree_cmd == "--date":
             print("merci de rentrez la date souhaitée: ")
             date_saisie = input()
             date_objet = datetime.strptime(date_saisie, "%d-%m-%Y")
             print("Vous avez choisi la date:", date_objet)
-            illumination = calcul_phase(date_objet)
+            illumination, age = calcul_phase(date_objet)
             print(f"Illumination : {illumination:.2f}%")
-            moon.lune(illumination)
+            print(moon.lune(illumination, age))
 
         elif entree_cmd == "--quit":
             print("Fin du programme")
@@ -68,16 +68,16 @@ def entree_utilisateur():
 
 def calcul_phase(date_objet):
 
-    nouvelle_lune_reference = datetime(2000, 1, 6) # 6 janvier 2000
+    nouvelle_lune_reference = datetime(2000, 1, 6)  # 6 janvier 2000
     delta = date_objet - nouvelle_lune_reference
-    jours_ecoules = delta.total_seconds() / (24 * 3600) # conversion des secondes en jours
+    jours_ecoules = delta.total_seconds() / (24 * 3600)  # conversion des secondes en jours
 
     cycle_lunaire = 29.53058867
-    age_lune = jours_ecoules % cycle_lunaire
+    age_lune = jours_ecoules % cycle_lunaire  # âge de la lune en jours
 
-    f = (1 - math.cos(age_lune * (2 * math.pi / cycle_lunaire))) / 2 * 100
+    illumination = (1 - math.cos(age_lune * (2 * math.pi / cycle_lunaire))) / 2 * 100
 
-    return f
+    return illumination, age_lune
 
 
 visuel()
